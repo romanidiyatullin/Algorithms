@@ -35,5 +35,10 @@ public class Main {
         list.add(300);
         System.out.println("Check if method isExist for existing element will return true: "+ list.isExist(100));
         System.out.println("Check if method isExist for non-existing element will return false: "+ list.isExist(10));
+        System.out.println("BEFORE REVERSE:");
+        list.print();
+        list.reverse();
+        System.out.println("AFTER REVERSE:");
+        list.print();
     }
 }

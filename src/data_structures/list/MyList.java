@@ -20,13 +20,16 @@ public final class MyList {
         Node previousNode = head;
         while (currentNode != null) {
             if (currentNode.getData() == element) {
-                previousNode.setNext(currentNode.getNext());
-                if (currentNode==head)
+                if (currentNode == head) {
                     head = currentNode.getNext();
+                } else {
+                    previousNode.setNext(currentNode.getNext());
+                }
+                currentNode.setNext(null);
                 return true;
             } else {
                 previousNode = currentNode;
-                currentNode  = currentNode.getNext();
+                currentNode = currentNode.getNext();
             }
         }
         return false;
@@ -44,10 +47,10 @@ public final class MyList {
         return false;
     }
 
-    public int size(){
+    public int size() {
         Node currentNode = head;
         int size = 0;
-        while(currentNode!=null) {
+        while (currentNode != null) {
             currentNode = currentNode.getNext();
             size++;
         }
@@ -60,5 +63,20 @@ public final class MyList {
             System.out.println(currentNode);
             currentNode = currentNode.getNext();
         }
+    }
+
+    public void reverse() {
+
+        Node previousNode = null;
+        Node currentNode = head;
+
+        while(currentNode!=null) {
+            Node nextNode = currentNode.getNext();
+            currentNode.setNext(previousNode);
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+
+        head = previousNode;
     }
 }

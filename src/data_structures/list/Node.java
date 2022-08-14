@@ -21,6 +21,10 @@ public final class Node {
         next = node;
     }
 
+    public boolean hasNext(){
+        return next != null;
+    }
+
     @Override
     public String toString() {
         return String.valueOf(data);
