@@ -1,8 +1,8 @@
 package data_structures.list;
 
 public final class MyList {
-
     private Node head;
+    private int size;
 
     public MyList() {
         head = null;
@@ -13,6 +13,7 @@ public final class MyList {
         if (head == null) previous = null;
         else previous = head;
         head = new Node(element, previous);
+        size++;
     }
 
     public boolean remove(int element) {
@@ -26,6 +27,7 @@ public final class MyList {
                     previousNode.setNext(currentNode.getNext());
                 }
                 currentNode.setNext(null);
+                size--;
                 return true;
             } else {
                 previousNode = currentNode;
@@ -47,13 +49,7 @@ public final class MyList {
         return false;
     }
 
-    public int size() {
-        Node currentNode = head;
-        int size = 0;
-        while (currentNode != null) {
-            currentNode = currentNode.getNext();
-            size++;
-        }
+    public int getSize() {
         return size;
     }
 
@@ -69,9 +65,10 @@ public final class MyList {
 
         Node previousNode = null;
         Node currentNode = head;
+        Node nextNode;
 
         while(currentNode!=null) {
-            Node nextNode = currentNode.getNext();
+            nextNode = currentNode.getNext();
             currentNode.setNext(previousNode);
             previousNode = currentNode;
             currentNode = nextNode;
