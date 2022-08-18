@@ -20,26 +20,26 @@ public class QuickSorting {
     }
 
     private static void quickSort(int[] array, int start, int end){
-        int i = start;
-        int j = end;
+        int leftIndex = start;
+        int rightIndex = end;
         int basisIndex = start + (end-start)/2;
         int basisValue = array[basisIndex];
-        while(i<=j) {
-            while(array[i]<basisValue)
-                i++;
-            while(array[j]>basisValue)
-                j--;
-            if(i<=j) {
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-                i++;
-                j--;
+        while(leftIndex <= rightIndex) {
+            while(array[leftIndex] < basisValue)
+                leftIndex++;
+            while(array[rightIndex] > basisValue)
+                rightIndex--;
+            if(leftIndex <= rightIndex) {
+                int temp = array[leftIndex];
+                array[leftIndex] = array[rightIndex];
+                array[rightIndex] = temp;
+                leftIndex++;
+                rightIndex--;
             }
         }
-        if(start<j)
-            quickSort(array, start, j);
-        if(end>i)
-            quickSort(array, i, end);
+        if(start < rightIndex)
+            quickSort(array, start, rightIndex);
+        if(end > leftIndex)
+            quickSort(array, leftIndex, end);
     }
 }
