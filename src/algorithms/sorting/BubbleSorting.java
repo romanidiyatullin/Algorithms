@@ -1,17 +1,21 @@
 package algorithms.sorting;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class BubbleSorting {
     public static void main(String[] args) {
-        int[] array = {1000,900,800,800,600,500,400,300,200,0};
+        int[] array = initializeArray(100);
         System.out.println("Iterations required: " + bubbleSort(array));
-        printArray(array);
+        Arrays.stream(array).forEach(System.out::println);
     }
 
-    public static void printArray(int[] array){
-        Arrays.stream(array).forEach(System.out::println);
-        System.out.println();
+    private static int[] initializeArray(int size){
+        int[] array = new int[size];
+        Random random = new Random();
+        for(int i=0; i<array.length-1;i++)
+            array[i] = random.nextInt(100);
+        return array;
     }
 
     public static int bubbleSort(int[] array){

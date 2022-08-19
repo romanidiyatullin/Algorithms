@@ -19,7 +19,7 @@ public class QuickSorting {
         return array;
     }
 
-    private static void quickSort(int[] array, int start, int end){
+    public static void quickSort(int[] array, int start, int end){
         int leftIndex = start;
         int rightIndex = end;
         int basisIndex = start + (end-start)/2;
