@@ -42,11 +42,8 @@ public class ReverseList {
     }
 
     public static void printAllNodes(Node node){
-        StringBuilder sb = new StringBuilder();
         while(node!=null){
             System.out.println(node.val);
-            sb.append(node.val);
-            sb.append('\n');
             node = node.next;
         }
     }
