@@ -8,10 +8,6 @@ class Node{
         this.val = val;
     }
 
-    Node(int val, Node next){
-        this.val = val;
-        this.next = next;
-    }
     public String toString(){
         return " " + this.val;
     }
@@ -45,7 +41,7 @@ public class ReverseList {
 
     }
 
-    public static String printAllNodes(Node node){
+    public static void printAllNodes(Node node){
         StringBuilder sb = new StringBuilder();
         while(node!=null){
             System.out.println(node.val);
@@ -53,7 +49,6 @@ public class ReverseList {
             sb.append('\n');
             node = node.next;
         }
-        return sb.toString();
     }
 
     public static Node createNodes(int howMany){
@@ -68,7 +63,7 @@ public class ReverseList {
 
     public static void main(String[] args) {
 
-        for(int i=1; i<5; i++){
+        for(int i=1; i<=7; i++){
             System.out.println("Before reverse:");
             Node node = createNodes(i);
             printAllNodes(node);
